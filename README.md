@@ -1,6 +1,6 @@
 # Fundamentos de Ciberseguridad - Study Suite
 
-Interactive study material for the **Fundamentals of Cybersecurity** course in the Cybersecurity program at Universidad de Palermo, Buenos Aires.
+Interactive study material for the **Cybersecurity Fundamentals** course in the Cybersecurity program at Universidad de Palermo, Buenos Aires.
 
 **[View live suite](https://catalinacarlen.github.io/fund-ciberseguridad-suite/)**
 
