@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suite de Estudio · Fundamentos de Ciberseguridad</title>
+<style>
+:root{
+  --bg:#0f1419; --bg2:#161d26; --panel:#1c2530; --panel2:#222d3a;
+  --ink:#e8edf2; --ink2:#a7b3c0; --muted:#6f7d8c;
+  --acc:#4ea3ff; --acc2:#7c5cff; --ok:#39d98a; --warn:#ffb454; --bad:#ff6b6b;
+  --line:#2a3543; --radius:14px;
+  --shadow:0 8px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:linear-gradient(160deg,#0f1419,#121a24 60%,#0d1219);color:var(--ink);line-height:1.6;min-height:100vh}
+a{color:var(--acc);text-decoration:none}
+.app{display:flex;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{width:300px;flex-shrink:0;background:rgba(20,27,36,.92);border-right:1px solid var(--line);
+  position:sticky;top:0;height:100vh;overflow-y:auto;backdrop-filter:blur(6px)}
+.brand{padding:22px 20px 14px;border-bottom:1px solid var(--line)}
+.brand h1{font-size:16px;letter-spacing:.3px;line-height:1.3}
+.brand .sub{font-size:12px;color:var(--ink2);margin-top:4px}
+.brand .tag{display:inline-block;margin-top:10px;font-size:11px;color:var(--acc);
+  border:1px solid var(--acc);border-radius:20px;padding:2px 10px}
+.searchbox{padding:14px 16px;border-bottom:1px solid var(--line)}
+.searchbox input{width:100%;background:var(--panel2);border:1px solid var(--line);color:var(--ink);
+  padding:10px 12px;border-radius:10px;font-size:13px;outline:none}
+.searchbox input:focus{border-color:var(--acc)}
+.nav{padding:10px 0 30px}
+.nav .group-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);
+  padding:14px 20px 6px}
+.nav a.navlink{display:flex;gap:10px;align-items:flex-start;padding:9px 18px;font-size:13px;color:var(--ink2);
+  border-left:3px solid transparent;cursor:pointer}
+.nav a.navlink:hover{background:var(--panel);color:var(--ink)}
+.nav a.navlink.active{background:var(--panel);color:var(--ink);border-left-color:var(--acc)}
+.nav a.navlink .num{flex-shrink:0;width:22px;height:22px;border-radius:6px;background:var(--panel2);
+  display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--acc);font-weight:600}
+.nav .tool{color:var(--acc2)}
+.nav .tool .num{color:var(--acc2)}
+
+/* MAIN */
+.main{flex:1;min-width:0}
+.topbar{position:sticky;top:0;z-index:20;background:rgba(15,20,25,.85);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);padding:12px 30px;display:flex;justify-content:space-between;align-items:center}
+.progress-wrap{display:flex;align-items:center;gap:12px;font-size:12px;color:var(--ink2)}
+.progress-bar{width:160px;height:7px;background:var(--panel2);border-radius:10px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc2));transition:width .4s}
+.content{max-width:920px;margin:0 auto;padding:36px 30px 90px}
+
+/* VIEWS */
+.view{display:none;animation:fade .3s ease}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,rgba(78,163,255,.13),rgba(124,92,255,.13));
+  border:1px solid var(--line);border-radius:var(--radius);padding:34px;margin-bottom:26px}
+.hero h2{font-size:26px;margin-bottom:10px}
+.hero p{color:var(--ink2);max-width:680px}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:22px}
+.stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 18px;min-width:120px}
+.stat .n{font-size:24px;font-weight:700;color:var(--acc)}
+.stat .l{font-size:12px;color:var(--ink2)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-top:8px}
+.mcard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px;cursor:pointer;transition:.2s}
+.mcard:hover{border-color:var(--acc);transform:translateY(-3px);box-shadow:var(--shadow)}
+.mcard .mc-num{font-size:12px;color:var(--acc);font-weight:600}
+.mcard h4{font-size:15px;margin:6px 0 6px}
+.mcard p{font-size:12.5px;color:var(--muted)}
+
+/* MODULE CONTENT */
+.mod-head{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:24px}
+.mod-head .eyebrow{font-size:12px;color:var(--acc);letter-spacing:1px;text-transform:uppercase}
+.mod-head h2{font-size:28px;margin:6px 0 8px}
+.mod-head .lead{color:var(--ink2);font-size:15px}
+.content h3{font-size:20px;margin:30px 0 12px;padding-left:12px;border-left:4px solid var(--acc)}
+.content h4{font-size:16px;margin:22px 0 8px;color:var(--acc)}
+.content p{margin:10px 0;color:var(--ink)}
+.content ul,.content ol{margin:10px 0 10px 26px}
+.content li{margin:6px 0;color:var(--ink)}
+.content strong{color:#fff}
+blockquote{border-left:4px solid var(--acc2);background:var(--panel);padding:12px 18px;border-radius:0 10px 10px 0;
+  margin:16px 0;color:var(--ink2);font-style:italic}
+.note{background:rgba(78,163,255,.08);border:1px solid rgba(78,163,255,.3);border-radius:10px;padding:14px 16px;margin:18px 0}
+.note .nt{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--acc);font-weight:700;margin-bottom:4px}
+.example{background:rgba(57,217,138,.07);border:1px solid rgba(57,217,138,.3);border-radius:10px;padding:14px 16px;margin:18px 0}
+.example .nt{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--ok);font-weight:700;margin-bottom:4px}
+.thread{background:rgba(124,92,255,.08);border:1px solid rgba(124,92,255,.3);border-radius:10px;padding:14px 16px;margin:18px 0}
+.thread .nt{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--acc2);font-weight:700;margin-bottom:4px}
+table.tbl{width:100%;border-collapse:collapse;margin:16px 0;font-size:13.5px}
+table.tbl th,table.tbl td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}
+table.tbl th{background:var(--panel2);color:var(--acc)}
+table.tbl tr:nth-child(even){background:rgba(255,255,255,.02)}
+.modnav{display:flex;justify-content:space-between;margin-top:40px;gap:12px}
+.modnav button{background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:12px 18px;
+  border-radius:10px;cursor:pointer;font-size:13px;transition:.2s;flex:1}
+.modnav button:hover:not(:disabled){border-color:var(--acc);color:var(--acc)}
+.modnav button:disabled{opacity:.35;cursor:default}
+
+/* FLASHCARDS */
+.fc-controls{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:20px}
+.fc-controls select{background:var(--panel2);border:1px solid var(--line);color:var(--ink);padding:9px 12px;border-radius:9px;font-size:13px}
+.flashcard{perspective:1400px;height:330px;margin:0 auto;max-width:560px}
+.fc-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s;cursor:pointer}
+.fc-inner.flip{transform:rotateY(180deg)}
+.fc-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:16px;border:1px solid var(--line);
+  padding:30px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.fc-front{background:linear-gradient(135deg,var(--panel),var(--panel2))}
+.fc-back{background:linear-gradient(135deg,rgba(78,163,255,.12),rgba(124,92,255,.12));transform:rotateY(180deg);overflow-y:auto}
+.fc-face .lbl{position:absolute;top:14px;left:18px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--muted)}
+.fc-tag{position:absolute;top:14px;right:18px;font-size:11px;color:var(--acc);border:1px solid var(--line);border-radius:14px;padding:2px 10px}
+.fc-front .q{font-size:21px;font-weight:600}
+.fc-back .a{font-size:15px;color:var(--ink);line-height:1.65}
+.fc-hint{text-align:center;color:var(--muted);font-size:12px;margin-top:14px}
+.fc-bottom{display:flex;justify-content:center;gap:12px;margin-top:20px;align-items:center}
+.fc-bottom button{background:var(--panel);border:1px solid var(--line);color:var(--ink);padding:11px 22px;border-radius:10px;cursor:pointer;font-size:14px}
+.fc-bottom button:hover{border-color:var(--acc)}
+.fc-counter{font-size:13px;color:var(--ink2);min-width:90px;text-align:center}
+
+/* QUIZ */
+.quiz-intro{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:20px}
+.quiz-q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px;margin-bottom:16px}
+.quiz-q .qhead{font-size:12px;color:var(--acc);margin-bottom:6px}
+.quiz-q .qtext{font-size:16px;font-weight:600;margin-bottom:14px}
+.opt{display:block;background:var(--panel2);border:1px solid var(--line);border-radius:10px;padding:12px 15px;
+  margin:8px 0;cursor:pointer;font-size:14px;transition:.15s}
+.opt:hover{border-color:var(--acc)}
+.opt.sel{border-color:var(--acc);background:rgba(78,163,255,.12)}
+.opt.correct{border-color:var(--ok);background:rgba(57,217,138,.15)}
+.opt.wrong{border-color:var(--bad);background:rgba(255,107,107,.15)}
+.opt .exp{display:none;margin-top:8px;font-size:12.5px;color:var(--ink2);border-top:1px dashed var(--line);padding-top:8px}
+.opt.show-exp .exp{display:block}
+.quiz-actions{display:flex;gap:12px;margin-top:10px;flex-wrap:wrap}
+.btn{background:linear-gradient(135deg,var(--acc),var(--acc2));border:none;color:#fff;padding:13px 26px;
+  border-radius:10px;cursor:pointer;font-size:14px;font-weight:600}
+.btn:hover{opacity:.92}
+.btn.ghost{background:var(--panel);border:1px solid var(--line);color:var(--ink)}
+.quiz-result{background:linear-gradient(135deg,rgba(78,163,255,.13),rgba(124,92,255,.13));
+  border:1px solid var(--line);border-radius:14px;padding:28px;text-align:center;margin-bottom:20px}
+.quiz-result .score{font-size:44px;font-weight:800}
+.quiz-result .msg{color:var(--ink2);margin-top:6px}
+
+/* SEARCH RESULTS */
+.searchresults{margin-top:6px}
+.sr-item{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;cursor:pointer}
+.sr-item:hover{border-color:var(--acc)}
+.sr-item .sr-mod{font-size:11px;color:var(--acc);text-transform:uppercase;letter-spacing:1px}
+.sr-item h5{font-size:15px;margin:3px 0}
+.sr-item p{font-size:13px;color:var(--muted)}
+mark{background:rgba(255,180,84,.4);color:#fff;border-radius:3px;padding:0 2px}
+.empty{color:var(--muted);text-align:center;padding:40px}
+
+/* DIAGRAMA VISUAL */
+.dg-section-title{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--acc2);
+  font-weight:700;margin:6px 0 14px;display:flex;align-items:center;gap:8px}
+.diagram-box{background:linear-gradient(135deg,rgba(78,163,255,.06),rgba(124,92,255,.06));
+  border:1px solid var(--line);border-radius:14px;padding:20px 22px 16px;margin:0 0 22px}
+.diagram-box .dg-title{font-size:13px;text-transform:uppercase;letter-spacing:.6px;color:var(--acc);
+  font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.diagram-box svg{width:100%;height:auto;max-width:640px;display:block;margin:0 auto}
+/* galería: una columna, tarjetas grandes y legibles */
+.diagram-gallery{display:flex;flex-direction:column;gap:0;margin-bottom:26px}
+.footer{text-align:center;color:var(--muted);font-size:12px;margin-top:30px;padding-top:20px;border-top:1px solid var(--line)}
+@media(max-width:860px){
+  .sidebar{position:fixed;left:-300px;z-index:50;transition:.3s}
+  .sidebar.open{left:0}
+  .menu-btn{display:inline-flex!important}
+}
+.menu-btn{display:none;background:var(--panel);border:1px solid var(--line);color:var(--ink);
+  width:38px;height:38px;border-radius:9px;cursor:pointer;font-size:18px;align-items:center;justify-content:center}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <h1>Fundamentos de Ciberseguridad</h1>
+      <div class="sub">Suite de estudio interactiva · Universidad de Palermo</div>
+      <span class="tag">12 módulos</span>
+    </div>
+    <div class="searchbox">
+      <input id="globalSearch" type="text" placeholder="🔎 Buscar en todo el contenido...">
+    </div>
+    <nav class="nav" id="nav"></nav>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <button class="menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+      <div class="progress-wrap">
+        <span id="progressLabel">Progreso</span>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      </div>
+    </div>
+    <div class="content" id="content"></div>
+  </div>
+</div>
+
+<script>
+/* ============ DATOS DEL CURSO ============ */
+const MODULES = [];
+const FLASHCARDS = [];
+const QUIZ = [];
+const DIAGRAMS = [];
+</script>
+<script src="suite-data-ciber.js"></script>
+<script src="suite-diagramas-ciber.js"></script>
+<script>
+/* ============ MOTOR DE LA APP ============ */
+let current = 'home';
+let visited = new Set();
+
+function buildNav(){
+  const nav = document.getElementById('nav');
+  let html = '<div class="group-title">General</div>';
+  html += navLink('home','★','Inicio');
+  html += '<div class="group-title">Módulos</div>';
+  MODULES.forEach((m,i)=> html += navLink('mod-'+i, (i+1), m.title));
+  html += '<div class="group-title">Herramientas de estudio</div>';
+  html += navLink('flashcards','🃏','Flashcards', true);
+  html += navLink('quiz','✓','Quiz interactivo', true);
+  nav.innerHTML = html;
+}
+function navLink(id,num,label,tool){
+  return `<a class="navlink ${tool?'tool':''}" data-view="${id}" onclick="go('${id}')">
+    <span class="num">${num}</span><span>${label}</span></a>`;
+}
+function setActiveNav(id){
+  document.querySelectorAll('.navlink').forEach(a=>a.classList.toggle('active',a.dataset.view===id));
+}
+function updateProgress(){
+  const pct = Math.round(visited.size/MODULES.length*100);
+  document.getElementById('progressFill').style.width = pct+'%';
+  document.getElementById('progressLabel').textContent = `Módulos vistos: ${visited.size}/${MODULES.length}`;
+}
+
+function go(id){
+  current = id;
+  setActiveNav(id);
+  document.getElementById('sidebar').classList.remove('open');
+  window.scrollTo(0,0);
+  if(id==='home') renderHome();
+  else if(id==='flashcards') renderFlashcards();
+  else if(id==='quiz') renderQuiz();
+  else if(id.startsWith('mod-')){
+    const i = +id.split('-')[1];
+    visited.add(i); updateProgress();
+    renderModule(i);
+  }
+}
+
+/* ---- HOME ---- */
+function renderHome(){
+  const totalCards = FLASHCARDS.length, totalQ = QUIZ.reduce((a,m)=>a+m.questions.length,0);
+  let cards = MODULES.map((m,i)=>`
+    <div class="mcard" onclick="go('mod-${i}')">
+      <div class="mc-num">Módulo ${i+1}</div>
+      <h4>${m.title}</h4>
+      <p>${m.lead}</p>
+    </div>`).join('');
+  document.getElementById('content').innerHTML = `
+  <div class="view active">
+    <div class="hero">
+      <h2>Suite de estudio · Fundamentos de Ciberseguridad</h2>
+      <p>Todo el material de la materia <strong>Fundamentos de Ciberseguridad</strong> organizado para estudiar:
+      contenido completo por módulos con hilo conductor y ejemplos, tarjetas de repaso y un quiz de autoevaluación.
+      El recorrido sigue el flujo lógico de la disciplina: desde qué es el ciberespacio y la ciberseguridad, pasando por
+      la gestión de la seguridad, el riesgo, los estándares y las herramientas defensivas, hasta la respuesta a incidentes,
+      la continuidad del negocio y la auditoría, y cierra con un caso práctico real de plan de seguridad para una empresa.</p>
+      <div class="stat-row">
+        <div class="stat"><div class="n">${MODULES.length}</div><div class="l">Módulos</div></div>
+        <div class="stat"><div class="n">${totalCards}</div><div class="l">Flashcards</div></div>
+        <div class="stat"><div class="n">${totalQ}</div><div class="l">Preguntas de quiz</div></div>
+      </div>
+    </div>
+    <h3>Mapa del curso</h3>
+    <div class="card-grid">${cards}</div>
+    <div class="footer">Material basado en los apuntes de la Universidad de Palermo. Suite de estudio para uso personal.</div>
+  </div>`;
+}
+
+/* ---- MÓDULO ---- */
+/* Inserta cada diagrama al final de la sección cuyo encabezado (h3/h4)
+   contiene su 'anchor'. Si no encuentra coincidencia, lo coloca al inicio. */
+function injectDiagrams(bodyHtml, dlist){
+  if(!dlist.length) return bodyHtml;
+  const tmp = document.createElement('div');
+  tmp.innerHTML = bodyHtml;
+  const used = new Set();
+  dlist.forEach(d=>{
+    const box = document.createElement('div');
+    box.className = 'diagram-box';
+    box.innerHTML = `<div class="dg-title">📊 ${d.title}</div>${d.svg}`;
+    const heads = [...tmp.querySelectorAll('h3,h4')];
+    let target = null;
+    const anc = (d.anchor||'').toLowerCase();
+    for(const h of heads){
+      if(used.has(h)) continue;
+      if(anc && h.textContent.toLowerCase().includes(anc)){ target = h; used.add(h); break; }
+    }
+    if(target){
+      // avanzar hasta el final de la sección (antes del próximo h3/h4)
+      let last = target, node = target.nextElementSibling;
+      while(node && !/^H[34]$/.test(node.tagName)){ last = node; node = node.nextElementSibling; }
+      last.after(box);
+    } else {
+      tmp.insertBefore(box, tmp.firstChild);
+    }
+  });
+  return tmp.innerHTML;
+}
+
+function renderModule(i){
+  const m = MODULES[i];
+  const prev = i>0 ? `<button onclick="go('mod-${i-1}')">← ${MODULES[i-1].title}</button>` : `<button disabled>←</button>`;
+  const next = i<MODULES.length-1 ? `<button onclick="go('mod-${i+1}')">${MODULES[i+1].title} →</button>` : `<button onclick="go('flashcards')">Ir a Flashcards →</button>`;
+  const raw = DIAGRAMS[i];
+  const dlist = Array.isArray(raw) ? raw : (raw ? [raw] : []);
+  const bodyHtml = injectDiagrams(m.body, dlist);
+  document.getElementById('content').innerHTML = `
+  <div class="view active">
+    <div class="mod-head">
+      <div class="eyebrow">Módulo ${i+1}</div>
+      <h2>${m.title}</h2>
+      <div class="lead">${m.lead}</div>
+    </div>
+    ${bodyHtml}
+    <div class="modnav">${prev}${next}</div>
+  </div>`;
+}
+
+/* ---- FLASHCARDS ---- */
+let fcDeck=[], fcIndex=0, fcFlip=false;
+function renderFlashcards(){
+  const opts = ['<option value="all">Todos los módulos</option>']
+    .concat(MODULES.map((m,i)=>`<option value="${i}">M${i+1} · ${m.title}</option>`)).join('');
+  document.getElementById('content').innerHTML = `
+  <div class="view active">
+    <div class="mod-head"><div class="eyebrow">Herramienta de estudio</div><h2>🃏 Flashcards</h2>
+    <div class="lead">Tarjetas de repaso activo. Hacé clic en la tarjeta para revelar la respuesta.</div></div>
+    <div class="fc-controls">
+      <label style="font-size:13px;color:var(--ink2)">Mazo:</label>
+      <select id="fcFilter" onchange="loadDeck()">${opts}</select>
+      <button class="btn ghost" onclick="shuffleDeck()">🔀 Mezclar</button>
+    </div>
+    <div class="flashcard"><div class="fc-inner" id="fcInner" onclick="flipCard()">
+      <div class="fc-face fc-front"><span class="lbl">Concepto</span><span class="fc-tag" id="fcTagF"></span><div class="q" id="fcQ"></div></div>
+      <div class="fc-face fc-back"><span class="lbl">Definición</span><span class="fc-tag" id="fcTagB"></span><div class="a" id="fcA"></div></div>
+    </div></div>
+    <div class="fc-hint">Clic en la tarjeta para girarla</div>
+    <div class="fc-bottom">
+      <button onclick="prevCard()">← Anterior</button>
+      <span class="fc-counter" id="fcCounter"></span>
+      <button onclick="nextCard()">Siguiente →</button>
+    </div>
+  </div>`;
+  loadDeck();
+}
+function loadDeck(){
+  const f = document.getElementById('fcFilter').value;
+  fcDeck = f==='all' ? FLASHCARDS.slice() : FLASHCARDS.filter(c=>c.mod==+f);
+  fcIndex=0; fcFlip=false; showCard();
+}
+function shuffleDeck(){ for(let i=fcDeck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[fcDeck[i],fcDeck[j]]=[fcDeck[j],fcDeck[i]];} fcIndex=0;fcFlip=false;showCard(); }
+function showCard(){
+  if(!fcDeck.length){document.getElementById('fcQ').textContent='Sin tarjetas';return;}
+  const c=fcDeck[fcIndex];
+  document.getElementById('fcInner').classList.remove('flip');fcFlip=false;
+  document.getElementById('fcQ').textContent=c.q;
+  document.getElementById('fcA').innerHTML=c.a;
+  const tag='M'+(c.mod+1);
+  document.getElementById('fcTagF').textContent=tag;
+  document.getElementById('fcTagB').textContent=tag;
+  document.getElementById('fcCounter').textContent=`${fcIndex+1} / ${fcDeck.length}`;
+}
+function flipCard(){fcFlip=!fcFlip;document.getElementById('fcInner').classList.toggle('flip',fcFlip);}
+function nextCard(){if(fcIndex<fcDeck.length-1){fcIndex++;showCard();}}
+function prevCard(){if(fcIndex>0){fcIndex--;showCard();}}
+
+/* ---- QUIZ ---- */
+let quizMod=0, quizAnswers={}, quizSubmitted=false;
+function renderQuiz(){
+  const opts = MODULES.map((m,i)=>`<option value="${i}">M${i+1} · ${m.title}</option>`).join('');
+  document.getElementById('content').innerHTML = `
+  <div class="view active">
+    <div class="mod-head"><div class="eyebrow">Herramienta de estudio</div><h2>✓ Quiz interactivo</h2>
+    <div class="lead">Autoevaluación por módulo con corrección automática y explicación de cada respuesta.</div></div>
+    <div class="fc-controls">
+      <label style="font-size:13px;color:var(--ink2)">Módulo:</label>
+      <select id="quizFilter" onchange="loadQuiz()">${opts}</select>
+    </div>
+    <div id="quizArea"></div>
+  </div>`;
+  loadQuiz();
+}
+function loadQuiz(){
+  quizMod=+document.getElementById('quizFilter').value;
+  quizAnswers={};quizSubmitted=false;
+  const qs=QUIZ[quizMod].questions;
+  let html=`<div class="quiz-intro"><strong>${QUIZ[quizMod].title}</strong><br>
+    <span style="color:var(--ink2);font-size:13px">${qs.length} preguntas · elegí una opción por pregunta y luego corregí.</span></div>`;
+  qs.forEach((q,qi)=>{
+    html+=`<div class="quiz-q" id="q-${qi}"><div class="qhead">Pregunta ${qi+1}</div><div class="qtext">${q.q}</div>`;
+    q.options.forEach((o,oi)=>{
+      html+=`<label class="opt" data-q="${qi}" data-o="${oi}" onclick="selectOpt(${qi},${oi})">
+        ${o}<div class="exp">${oi===q.correct?'✅ Correcta. ':'❌ '}${q.exp}</div></label>`;
+    });
+    html+=`</div>`;
+  });
+  html+=`<div class="quiz-actions">
+    <button class="btn" onclick="submitQuiz()">Corregir</button>
+    <button class="btn ghost" onclick="loadQuiz()">Reiniciar</button></div>`;
+  document.getElementById('quizArea').innerHTML=html;
+}
+function selectOpt(qi,oi){
+  if(quizSubmitted)return;
+  quizAnswers[qi]=oi;
+  document.querySelectorAll(`.opt[data-q="${qi}"]`).forEach(el=>el.classList.toggle('sel',+el.dataset.o===oi));
+}
+function submitQuiz(){
+  if(quizSubmitted)return;
+  const qs=QUIZ[quizMod].questions;let score=0;
+  qs.forEach((q,qi)=>{
+    const ans=quizAnswers[qi];
+    document.querySelectorAll(`.opt[data-q="${qi}"]`).forEach(el=>{
+      const oi=+el.dataset.o;el.classList.add('show-exp');
+      if(oi===q.correct)el.classList.add('correct');
+      if(ans===oi&&oi!==q.correct)el.classList.add('wrong');
+    });
+    if(ans===q.correct)score++;
+  });
+  quizSubmitted=true;
+  const pct=Math.round(score/qs.length*100);
+  let msg = pct===100?'¡Perfecto! Dominás este módulo. 🦈':pct>=70?'Muy bien, vas afilada. Repasá los que fallaste.':pct>=50?'Aprobado, pero conviene volver al módulo.':'A repasar el módulo y volver a intentarlo. No aflojes.';
+  const res=document.createElement('div');res.className='quiz-result';
+  res.innerHTML=`<div class="score">${score}/${qs.length}</div><div class="msg">${pct}% · ${msg}</div>`;
+  const area=document.getElementById('quizArea');area.insertBefore(res,area.firstChild);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+/* ---- BÚSQUEDA GLOBAL ---- */
+function stripHtml(h){const d=document.createElement('div');d.innerHTML=h;return d.textContent||'';}
+function doSearch(term){
+  term=term.trim().toLowerCase();
+  if(term.length<3){ if(current==='search') go('home'); return; }
+  current='search';setActiveNav('');
+  const results=[];
+  MODULES.forEach((m,i)=>{
+    const txt=stripHtml(m.body);const low=txt.toLowerCase();
+    let idx=low.indexOf(term);
+    if(idx>=0||m.title.toLowerCase().includes(term)){
+      let snippet='';
+      if(idx>=0){const s=Math.max(0,idx-60);snippet=txt.substring(s,idx+term.length+90);
+        snippet=(s>0?'…':'')+snippet+'…';
+        snippet=snippet.replace(new RegExp('('+term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','ig'),'<mark>$1</mark>');}
+      results.push({i,title:m.title,snippet});
+    }
+  });
+  let html=`<div class="view active"><div class="mod-head"><div class="eyebrow">Búsqueda</div>
+    <h2>Resultados para "${term}"</h2><div class="lead">${results.length} módulo(s) coinciden.</div></div><div class="searchresults">`;
+  if(!results.length)html+=`<div class="empty">Sin coincidencias. Probá otro término.</div>`;
+  results.forEach(r=>{html+=`<div class="sr-item" onclick="go('mod-${r.i}')">
+    <div class="sr-mod">Módulo ${r.i+1}</div><h5>${r.title}</h5><p>${r.snippet||''}</p></div>`;});
+  html+='</div></div>';
+  document.getElementById('content').innerHTML=html;
+}
+document.getElementById('globalSearch').addEventListener('input',e=>doSearch(e.target.value));
+
+/* INIT */
+buildNav();updateProgress();renderHome();
+</script>
+</body>
+</html>
