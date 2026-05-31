@@ -2,7 +2,7 @@
 
 Interactive study material for the **Fundamentals of Cybersecurity** course in the Cybersecurity program at Universidad de Palermo, Buenos Aires.
 
-**[View live suite](https://catalinacarlen.github.io/ciberseguridad-suite/suite-estudio-ciber.html)**
+**[View live suite](https://catalinacarlen.github.io/fund-ciberseguridad-suite/)**
 
 ---
 
@@ -47,7 +47,7 @@ Cyberspace -> Branches -> Information security mgmt -> ISMS -> Risk mgmt
 
 - Pure HTML/CSS/JS, no dependencies or frameworks
 - No build step, no server - opens directly in the browser
-- Three files in one folder: `suite-estudio-ciber.html` (engine), `suite-data-ciber.js` (content), `suite-diagramas-ciber.js` (SVG diagrams)
+- Three files in one folder: `index.html` (engine), `suite-data-ciber.js` (content), `suite-diagramas-ciber.js` (SVG diagrams)
 - Dark theme, global search, progress tracking, flashcards and quizzes built in
 - Mobile responsive
 
@@ -56,9 +56,9 @@ Cyberspace -> Branches -> Information security mgmt -> ISMS -> Risk mgmt
 ## Local use
 
 ```bash
-git clone https://github.com/catalinacarlen/ciberseguridad-suite
-# open suite-estudio-ciber.html in the browser (keep the 3 files together)
-open suite-estudio-ciber.html
+git clone https://github.com/catalinacarlen/fund-ciberseguridad-suite
+# open index.html in the browser (keep the 3 files together)
+open index.html
 ```
 
 ---
@@ -72,7 +72,7 @@ Made by [Catalina Carlen](https://github.com/catalinacarlen) - Universidad de Pa
 
 Material interactivo para la materia **Fundamentos de Ciberseguridad** de la carrera de Ciberseguridad en la Universidad de Palermo.
 
-**[Ver suite en vivo](https://catalinacarlen.github.io/ciberseguridad-suite/suite-estudio-ciber.html)**
+**[Ver suite en vivo](https://catalinacarlen.github.io/fund-ciberseguridad-suite/)**
 
 ---
 
@@ -117,7 +117,7 @@ Ciberespacio -> Ramas -> Gestión de la seguridad -> SGSI -> Gestión del riesgo
 
 - HTML/CSS/JS puro, sin dependencias ni frameworks
 - Sin build step, sin servidor - abre directo en el navegador
-- Tres archivos en una carpeta: `suite-estudio-ciber.html` (motor), `suite-data-ciber.js` (contenido), `suite-diagramas-ciber.js` (diagramas SVG)
+- Tres archivos en una carpeta: `index.html` (motor), `suite-data-ciber.js` (contenido), `suite-diagramas-ciber.js` (diagramas SVG)
 - Tema oscuro, búsqueda global, seguimiento de progreso, flashcards y quizzes integrados
 - Responsive para móvil
 
@@ -126,9 +126,9 @@ Ciberespacio -> Ramas -> Gestión de la seguridad -> SGSI -> Gestión del riesgo
 ## Uso local
 
 ```bash
-git clone https://github.com/catalinacarlen/ciberseguridad-suite
-# abrir suite-estudio-ciber.html en el navegador (mantené los 3 archivos juntos)
-open suite-estudio-ciber.html
+git clone https://github.com/catalinacarlen/fund-ciberseguridad-suite
+# abrir index.html en el navegador (mantené los 3 archivos juntos)
+open index.html
 ```
 
 ---
