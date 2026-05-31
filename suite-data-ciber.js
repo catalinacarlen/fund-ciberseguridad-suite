@@ -42,7 +42,7 @@ Antes de aprender a defender, hay que entender el terreno. Este módulo define e
 <li><strong>Ciberamenaza:</strong> representa un evento con potencial de daño que puede afectar negativamente a las operaciones de una organización o a sus activos.</li>
 <li><strong>Vulnerabilidad:</strong> representa una condición de debilidad en los sistemas informáticos que permite la materialización del daño.</li>
 </ul>
-<div class="note"><div class="nt">Clave para todo el curso</div>Amenaza, vulnerabilidad e impacto son los tres ladrillos que se repiten en gestión de la seguridad, gestión del riesgo y respuesta a incidentes. Conviene fijarlos desde ya.</div>
+<div class="note"><div class="nt">Clave para todo el curso</div>Amenaza, vulnerabilidad e impacto son los tres conceptos base que se repiten en la gestión de la seguridad, la gestión del riesgo y la respuesta a incidentes.</div>
 
 <h4>Ciberamenazas actuales</h4>
 <table class="tbl">
@@ -374,7 +374,7 @@ En M3 vimos las piezas (políticas, roles, activos). El <strong>SGSI</strong> es
 
 <h4>2. Implementación de controles</h4>
 <p>La norma ISO 27001 establece <strong>113 puntos de control</strong>, divididos por grandes objetivos (políticas de seguridad de la información y controles operacionales). Cada organización puede añadir más puntos de control o personalizarlos para adaptarlos a su propio plan de control operacional, pero siempre alineados a lo que pide la norma.</p>
-<div class="note"><div class="nt">Aclaración (dato a revisar)</div>El apunte indica <strong>113</strong> controles. En rigor, la versión <strong>ISO/IEC 27001:2013</strong> contempla <strong>114 controles</strong> agrupados en 14 dominios (la edición anterior, basada en ISO 27002:2005, tenía 133; y la versión <strong>2022</strong> los reorganizó en <strong>93</strong> controles bajo 4 categorías). Estudiá "113" si tu cátedra evalúa según el apunte, pero tené presente la cifra oficial 114 de la 27001:2013.</div>
+<div class="note"><div class="nt">Aclaración (dato a revisar)</div>El apunte indica <strong>113</strong> controles. En rigor, la versión <strong>ISO/IEC 27001:2013</strong> contempla <strong>114 controles</strong> agrupados en 14 dominios (la edición anterior, basada en ISO 27002:2005, tenía 133; y la versión <strong>2022</strong> los reorganizó en <strong>93</strong> controles bajo 4 categorías). Se reproduce la cifra "113" del apunte; se recomienda tener presente la cifra oficial 114 de la 27001:2013.</div>
 
 <h4>3. Plan de tratamiento de los riesgos o esquema de mejora</h4>
 <p>Tras el análisis se define un plan de tratamiento que tenga en cuenta las consecuencias potenciales de esos riesgos, estableciendo una <strong>criticidad</strong> para cada uno y permitiendo evaluar con objetividad las amenazas. Formas de afrontar el riesgo:</p>
@@ -608,7 +608,7 @@ La fase "Proteger" de los estándares (M6) se materializa con herramientas concr
 <p>Dispositivos de red que brindan protección contra ataques de <strong>capa 7</strong> del modelo OSI. Protegen las aplicaciones web tanto contra la explotación de vulnerabilidades conocidas como contra ataques de código.</p>
 <h4>IPS e IDS</h4>
 <p>Dispositivos que monitorean el tráfico de red y, de acuerdo a sus firmas, toman una acción. Los <strong>IDS</strong> solo monitorean y emiten alertas ante posibles amenazas, mientras que los <strong>IPS</strong> tienen la posibilidad de bloquear o droppear la conexión.</p>
-<div class="example"><div class="nt">Tip de examen</div>La diferencia clave: IDS = <strong>detecta</strong> y alerta (pasivo); IPS = detecta y además <strong>bloquea</strong> (activo). La "P" es de "Prevention".</div>
+<div class="example"><div class="nt">Diferencia clave</div>IDS = <strong>detecta</strong> y alerta (pasivo); IPS = detecta y además <strong>bloquea</strong> (activo). La "P" de IPS corresponde a "Prevention".</div>
 <h4>SIEM (Security Information Event Monitoring)</h4>
 <p>Dispositivos de red que permiten recolectar y correlacionar los logs de la infraestructura informática. Permiten definir reglas de correlación entre varios dispositivos, generar alertas en tiempo real y realizar búsquedas específicas, como el seguimiento de un usuario o un equipo en toda la red.</p>
 <h4>Proxy</h4>
@@ -877,7 +877,7 @@ La respuesta a incidentes (M9) apaga el fuego; la <strong>continuidad de negocio
 <li><strong>RTO (Tiempo Objetivo de Recuperación):</strong> período permitido para la recuperación de una función o recurso de negocio a un nivel aceptable luego de un desastre.</li>
 <li><strong>RPO (Punto Objetivo de Recuperación):</strong> antigüedad máxima de los datos para su restauración, con base en los requisitos del negocio.</li>
 </ul>
-<div class="example"><div class="nt">RTO vs. RPO, fácil de recordar</div>RTO mira hacia <strong>adelante</strong>: "¿cuánto tiempo puedo estar caído?". RPO mira hacia <strong>atrás</strong>: "¿cuántos datos recientes puedo permitirme perder?". Si hago backups cada 6 horas, mi RPO es 6 horas.</div>
+<div class="example"><div class="nt">RTO vs. RPO</div>El RTO mira hacia <strong>adelante</strong>: cuánto tiempo puede estar caído el servicio. El RPO mira hacia <strong>atrás</strong>: cuántos datos recientes se pueden perder. Por ejemplo, con backups cada 6 horas, el RPO es de 6 horas.</div>
 
 <h3>Plan de recuperación de desastres (DRP)</h3>
 <p>El DRP se limita a los procesos e infraestructura de TI de la organización y se considera <strong>dentro del BCP</strong>.</p>
@@ -979,7 +979,7 @@ title: "Caso práctico: Plan de seguridad para ABC S.A. (TP Grupo 2)",
 lead: "El cierre que une toda la teoría: trabajo grupal donde se diseña un plan de ciberseguridad real para la empresa ABC S.A. — estándares adoptados, clasificación CID de activos, riesgos, brechas, inversión con presupuesto y arquitectura de red segmentada.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
-Este módulo es el broche: toma <strong>todo</strong> lo visto —estándares (M6), gestión del riesgo (M5), herramientas (M7), continuidad (M10) y auditoría (M11)— y lo aplica a un caso concreto. Es el trabajo práctico del Grupo 2 (donde participaste, Cata) sobre la empresa ficticia <strong>ABC S.A.</strong> Muestra cómo se elabora, en la práctica, un plan de seguridad para una empresa.</div>
+Este módulo es el cierre: toma <strong>todo</strong> lo visto —estándares (M6), gestión del riesgo (M5), herramientas (M7), continuidad (M10) y auditoría (M11)— y lo aplica a un caso concreto. Es un trabajo práctico grupal sobre la empresa ficticia <strong>ABC S.A.</strong> que muestra cómo se elabora, en la práctica, un plan de seguridad para una empresa.</div>
 
 <h3>1. Estándar de ciberseguridad adoptado: ISO/IEC 27032:2012</h3>
 <p>Se propone adoptar la norma <strong>ISO/IEC 27032:2012</strong> como marco de referencia. Está orientada a fortalecer las defensas frente al cibercrimen, estableciendo lineamientos claros para proteger la información y los activos digitales. Su objetivo central es asegurar la integridad y confidencialidad de los intercambios de datos en la red corporativa, promoviendo una comunicación más segura entre los stakeholders. Permite un enfoque integral de gestión de riesgos basado en las fases <strong>Identificar, Proteger, Detectar, Responder y Recuperar</strong>, reforzando la resiliencia de la organización. Además posibilita formar y certificar a un <strong>Líder en Ciberseguridad ISO/IEC 27032</strong>, lo que aporta capacidades especializadas y valor reputacional, alineando el sistema de gestión con los objetivos de negocio de ABC S.A.</p>

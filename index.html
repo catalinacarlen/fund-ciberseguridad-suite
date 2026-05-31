@@ -436,7 +436,7 @@ function submitQuiz(){
   });
   quizSubmitted=true;
   const pct=Math.round(score/qs.length*100);
-  let msg = pct===100?'¡Perfecto! Dominás este módulo. 🦈':pct>=70?'Muy bien, vas afilada. Repasá los que fallaste.':pct>=50?'Aprobado, pero conviene volver al módulo.':'A repasar el módulo y volver a intentarlo. No aflojes.';
+  let msg = pct===100?'Excelente: dominio completo del módulo.':pct>=70?'Buen resultado. Conviene repasar las preguntas falladas.':pct>=50?'Aprobado. Se recomienda volver a revisar el módulo.':'Resultado insuficiente. Se recomienda repasar el módulo y reintentar.';
   const res=document.createElement('div');res.className='quiz-result';
   res.innerHTML=`<div class="score">${score}/${qs.length}</div><div class="msg">${pct}% · ${msg}</div>`;
   const area=document.getElementById('quizArea');area.insertBefore(res,area.firstChild);
