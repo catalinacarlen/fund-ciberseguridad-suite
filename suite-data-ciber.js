@@ -1071,7 +1071,6 @@ Este módulo es el cierre: toma <strong>todo</strong> lo visto —estándares (M
 
 <h3>10. Conclusión del trabajo</h3>
 <p>El desarrollo del trabajo permitió comprender cómo la ciberseguridad se integra en el funcionamiento de una organización moderna, convirtiéndose en un <strong>pilar estratégico de gestión</strong>. Detrás de cada medida técnica hay una decisión humana, planificación organizacional y responsabilidad compartida. El uso de marcos como ISO y NIST ayudó a ordenar las ideas en un enfoque sólido y medible, reforzando los procesos de identificación, protección, detección, respuesta y recuperación, junto con la importancia de los controles preventivos, las auditorías continuas y los planes de continuidad. En conclusión, la ciberseguridad no es solo un área técnica, sino una <strong>forma de pensar y actuar frente al riesgo</strong>.</p>
-<div class="note"><div class="nt">Integrantes (Grupo 2)</div>Abelle, Santiago · Brizuela, Franco Julián · Carlen Gastón, Catalina · Castro Vargas, Imanol · Cirigliano, Ezequiel · Frías, Agustín · González, Francisco · Leone, Florencia · Molina, Catriel Lautaro. — Septiembre 2025.</div>
 `
 });
 
