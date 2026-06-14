@@ -7,6 +7,12 @@
 /* -------- MÓDULO 1 -------- */
 MODULES.push({
 title: "Ciberseguridad",
+key: [
+"El <strong>ciberespacio</strong> es el entorno donde interactúan personas, software, servicios, dispositivos y redes: ahí viven las amenazas.",
+"Tres conceptos que se repiten en toda la materia: <strong>amenaza</strong> (evento con potencial de daño), <strong>vulnerabilidad</strong> (debilidad) y <strong>ataque</strong> (la maniobra que concreta el daño).",
+"Las ciberamenazas actuales van de malware, phishing y ransomware a DDoS, insider threat y criptojacking.",
+"La ciberseguridad (def. de ISACA) protege la información de los sistemas interconectados; el oficial de seguridad es un rol <strong>transversal</strong>."
+],
 lead: "Punto de partida: qué es el ciberespacio, qué problemas trae, cuáles son las ciberamenazas actuales y cómo nace la ciberseguridad como disciplina para protegernos.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -105,6 +111,12 @@ Antes de aprender a defender, hay que entender el terreno. Este módulo define e
 /* -------- MÓDULO 2 -------- */
 MODULES.push({
 title: "Ramas de la Ciberseguridad",
+key: [
+"Las ramas se reparten tres tareas: <strong>prevenir</strong> ataques, <strong>resolver</strong> sus efectos e <strong>investigar</strong> quién los hizo.",
+"Informática forense = derecho + informática para producir prueba admisible en tribunal (clave: la <strong>cadena de custodia</strong>).",
+"El pentesting puede ser <strong>Black, White o Grey Box</strong> según cuánto conoce el auditor de antemano.",
+"Seguridad ofensiva (activa) y defensiva (pasiva) son complementarias; el ciberpatrullaje vigila con OSINT, SOCMINT e IMINT."
+],
 lead: "El mapa de especialidades: informática forense, seguridad de redes, hacking ético, seguridad ofensiva y ciberpatrullaje, con casos reales de investigación de cibercrimen.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -240,6 +252,12 @@ La División Conductas Ilícitas del Departamento de Cibercrimen de la Policía 
 /* -------- MÓDULO 3 -------- */
 MODULES.push({
 title: "Gestión de la seguridad de la información",
+key: [
+"La <strong>tríada CID</strong> (Confidencialidad, Integridad, Disponibilidad) es la columna vertebral de toda la materia.",
+"La documentación baja en niveles de detalle: políticas → normas → procedimientos → estándares técnicos.",
+"Roles clave: el <strong>CISO</strong> alinea la seguridad con el negocio y el <strong>Comité de Seguridad</strong> implementa las directrices.",
+"Todo activo debe inventariarse y tener un propietario; la norma de referencia es la <strong>ISO 17799</strong>."
+],
 lead: "Los pilares CID, las políticas de seguridad, los roles (CISO y Comité), la clasificación de activos y la norma ISO 17799 como código de buenas prácticas.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -336,6 +354,12 @@ Conocido el terreno (M1) y las especialidades (M2), arranca la parte de <strong>
 /* -------- MÓDULO 4 -------- */
 MODULES.push({
 title: "Sistema de gestión de la seguridad de la información (SGSI)",
+key: [
+"Un SGSI ordena políticas, procesos y recursos para proteger la información de forma <strong>continua</strong>.",
+"Se basa en <strong>ISO 27001</strong> y el ciclo <strong>PDCA</strong> (Planificar-Hacer-Verificar-Actuar): nunca se detiene, siempre mejora.",
+"Tiene <strong>9 fases</strong> que arrancan por el análisis de riesgos y cierran con auditorías.",
+"El riesgo se puede eliminar, mitigar o trasladar; certificar trae confianza, menos riesgo y ROI."
+],
 lead: "Cómo se ordena todo en un sistema vivo basado en ISO 27001 y el ciclo PDCA de mejora continua: fases, controles, auditorías y beneficios de implementarlo.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -430,6 +454,12 @@ En M3 vimos las piezas (políticas, roles, activos). El <strong>SGSI</strong> es
 /* -------- MÓDULO 5 -------- */
 MODULES.push({
 title: "Gestión del riesgo",
+key: [
+"<strong>Riesgo = Impacto × Probabilidad</strong> de ocurrencia; el resultado se ubica en una matriz de riesgo.",
+"Conceptos base: activo, amenaza, vulnerabilidad, exposición e impacto.",
+"Cuatro formas de tratar el riesgo: <strong>asumir, mitigar, eliminar o transferir</strong>, según el umbral de aceptación.",
+"Metodologías de referencia: <strong>ISO 27005</strong>, <strong>MAGERIT v3</strong> (España) y <strong>NIST SP 800-30</strong> (9 pasos)."
+],
 lead: "El corazón cuantitativo de la seguridad: activo, amenaza, vulnerabilidad, impacto y riesgo; la fórmula Riesgo = impacto × probabilidad, el tratamiento del riesgo y las normas ISO 27005, MAGERIT y NIST SP 800-30.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -507,6 +537,12 @@ La primera fase de todo SGSI (M4) es el análisis de riesgos. Este módulo lo de
 /* -------- MÓDULO 6 -------- */
 MODULES.push({
 title: "Estándares de Ciberseguridad",
+key: [
+"Dos marcos centrales: <strong>ISO/IEC 27032</strong> (ciberseguridad) y el <strong>NIST CSF</strong>.",
+"Las 5 funciones del NIST CSF son simultáneas y continuas: <strong>Identificar, Proteger, Detectar, Responder, Recuperar</strong>.",
+"ISO 27032 define controles por capa: aplicación, servidor, usuario final e ingeniería social.",
+"<strong>Ciberresiliencia</strong> = resistir un ataque sin caerse; <strong>C-SCRM</strong> gestiona el riesgo de la cadena de suministro de TI/OT."
+],
 lead: "Los dos grandes marcos de referencia: la norma ISO/IEC 27032 para la ciberseguridad y el NIST Cybersecurity Framework (Identificar-Proteger-Detectar-Responder-Recuperar), más ciberresiliencia y C-SCRM.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -562,6 +598,12 @@ La gestión del riesgo (M5) necesita marcos que la ordenen. Acá aparecen los do
 /* -------- MÓDULO 7 -------- */
 MODULES.push({
 title: "Herramientas defensivas",
+key: [
+"Primero los conceptos de red: modelo <strong>OSI</strong> (7 capas), <strong>DMZ</strong>, <strong>VLAN</strong>, <strong>ACL</strong> y los 3 factores de autenticación.",
+"El arsenal: antivirus, IAM, OTP, NAC, VPN, WAF, IDS/IPS, SIEM, Proxy, filtrado web/email, DLP y DAM.",
+"Diferencia clave: <strong>IDS</strong> detecta y alerta (pasivo); <strong>IPS</strong> además bloquea (activo).",
+"El factor humano (<strong>concientización</strong>) es parte del arsenal: sin él, las herramientas no alcanzan."
+],
 lead: "El arsenal técnico: conceptos de red (OSI, DMZ, VLAN, ACL, factores de autenticación) y las soluciones que defienden la organización (antivirus, IAM, OTP, NAC, VPN, WAF, IDS/IPS, SIEM, Proxy, filtrado, DLP, DAM).",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -629,6 +671,12 @@ La fase "Proteger" de los estándares (M6) se materializa con herramientas concr
 /* -------- MÓDULO 8 -------- */
 MODULES.push({
 title: "Gestión de incidentes",
+key: [
+"Un incidente es una interrupción del servicio; se gestiona dentro de un tiempo acordado (<strong>SLA</strong>).",
+"La mesa de ayuda <strong>escala por niveles</strong> (1, 2 y 3) según la complejidad.",
+"<strong>ITIL</strong> es la guía de buenas prácticas para gestionar servicios de TI.",
+"Circuito de un incidente de seguridad: notificar → clasificar → tratar → cerrar → base de conocimiento (guía <strong>NIST 800-61</strong>)."
+],
 lead: "Qué es un incidente, los roles y niveles de la mesa de ayuda, el marco ITIL de gestión de servicios, y el circuito completo de resolución de incidentes de seguridad con la guía NIST 800-61.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -705,6 +753,12 @@ Por más herramientas (M7) y estándares (M6) que tengamos, los incidentes ocurr
 /* -------- MÓDULO 9 -------- */
 MODULES.push({
 title: "Plan de IR (Respuesta a Incidentes)",
+key: [
+"El plan de IR formaliza la respuesta en <strong>5 fases</strong>: Preparación, Detección, Respuesta, Recuperación y Seguimiento (que retroalimenta).",
+"El análisis forense en Windows mira cuentas, logs, procesos, servicios, conexiones y registro.",
+"Eventos clave de Windows: <strong>4624</strong> (logon ok), <strong>4625</strong> (logon fallido), <strong>1102</strong> (logs borrados), <strong>4720</strong> (cuenta creada).",
+"Caso real: <strong>Nobelium / SolarWinds</strong>, un ataque a la cadena de suministro vía cuentas privilegiadas."
+],
 lead: "El plan formal de respuesta a incidentes en cinco fases (Preparación, Detección, Respuesta, Recuperación, Seguimiento) y el análisis forense de un equipo Windows: cuentas, logs, procesos, servicios, conexiones y registro.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -821,6 +875,12 @@ El Centro de Inteligencia de Amenazas de Microsoft (MSTIC) detectó actividades 
 /* -------- MÓDULO 10 -------- */
 MODULES.push({
 title: "Continuidad de negocio",
+key: [
+"Continuidad (<strong>ISO 22301</strong>) = seguir operando ante una interrupción; no es solo TI.",
+"<strong>BCM</strong> es el proceso; el <strong>BCP</strong> es el plan de toda la organización y el <strong>DRP</strong> (solo TI) va dentro.",
+"El <strong>BIA</strong> identifica los procesos críticos y define <strong>RTO</strong> (tiempo caído tolerable) y <strong>RPO</strong> (datos que se pueden perder).",
+"El ransomware es el caso testigo: el DRP busca restaurar sistemas y datos en el menor tiempo posible."
+],
 lead: "Cómo seguir operando cuando todo falla: BCM, BCP, BIA (con RTO y RPO), DRP, los componentes del plan y la amenaza del ransomware como caso testigo.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -903,6 +963,12 @@ La respuesta a incidentes (M9) apaga el fuego; la <strong>continuidad de negocio
 /* -------- MÓDULO 11 -------- */
 MODULES.push({
 title: "Auditoría",
+key: [
+"Auditar = una persona <strong>competente e independiente</strong> evalúa evidencia y emite una opinión.",
+"Tipos: financiera, operativa, integrada, de sistemas y forense.",
+"<strong>COBIT 5</strong> es el modelo para auditar la gestión y el control de los SI y la tecnología.",
+"La <strong>auditoría continua</strong> (automatizada) y el modelo de <strong>tres líneas de defensa</strong> mantienen los controles a nivel aceptable."
+],
 lead: "Cómo se verifica que todo lo anterior funciona: concepto y tipos de auditoría, la auditoría de sistemas, el modelo COBIT 5, la auditoría continua y el modelo de las tres líneas de defensa.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>
@@ -976,6 +1042,12 @@ Cierra el ciclo de gestión. Tras implementar SGSI (M4), controles (M6-M7) y pla
 /* -------- MÓDULO 12 -------- */
 MODULES.push({
 title: "Caso práctico: Plan de seguridad para ABC S.A. (TP Grupo 2)",
+key: [
+"Trabajo práctico que aplica toda la teoría a una empresa: estándares <strong>ISO 27032</strong> + <strong>NIST CSF</strong>.",
+"Se clasifican los activos por <strong>CID</strong>; Base de Datos y Active Directory salen como los más críticos.",
+"Presupuesto de <strong>USD 650.000</strong>: IAM (225k), NGFW (130k), WAF (105k), IPS (90k), concientización (50k) + margen.",
+"Cierre con <strong>red segmentada</strong> (DMZ + red interna), defensa en profundidad y controles de gestión (SGSI, auditorías, BCM)."
+],
 lead: "El cierre que une toda la teoría: trabajo grupal donde se diseña un plan de ciberseguridad real para la empresa ABC S.A. — estándares adoptados, clasificación CID de activos, riesgos, brechas, inversión con presupuesto y arquitectura de red segmentada.",
 body: `
 <div class="thread"><div class="nt">Hilo conductor</div>

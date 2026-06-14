@@ -220,6 +220,25 @@ DIAGRAMS[4] = [
       </g>
       <text x="280" y="190" fill="var(--ink2)" font-size="10.5" text-anchor="middle">La elección depende del umbral de aceptación de la organización</text>
     </svg>`
+  },
+  {
+    title: 'Matriz de riesgo (impacto × probabilidad)',
+    anchor: 'metodología',
+    svg: `<svg viewBox="0 0 560 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+      ${SVGDEF}
+      <text x="290" y="24" fill="var(--ink)" font-size="14" font-weight="700" text-anchor="middle">Dónde cae cada riesgo</text>
+      <text x="34" y="120" fill="var(--ink2)" font-size="11" font-weight="700" text-anchor="middle" transform="rotate(-90 34 120)">IMPACTO</text>
+      ${[0,1,2].map(r=>[0,1,2].map(c=>{
+        const x=140+c*82, y=180-r*62, lvl=r+c;
+        const col= lvl<=1?'var(--ok)': lvl===2?'var(--warn)': lvl===3?'#fb923c':'var(--bad)';
+        const name= lvl<=1?'Bajo': lvl===2?'Medio': lvl===3?'Alto':'Crítico';
+        return `<rect x="${x}" y="${y}" width="78" height="56" rx="9" fill="${col}" fill-opacity="${(0.18+lvl*0.09).toFixed(2)}" stroke="${col}"/>
+        <text x="${x+39}" y="${y+33}" fill="var(--ink)" font-size="11" font-weight="700" text-anchor="middle">${name}</text>`;
+      }).join('')).join('')}
+      ${['Bajo','Medio','Alto'].map((t,r)=>`<text x="128" y="${180-r*62+32}" fill="var(--ink2)" font-size="10.5" text-anchor="end">${t}</text>`).join('')}
+      ${['Baja','Media','Alta'].map((t,c)=>`<text x="${140+c*82+39}" y="256" fill="var(--ink2)" font-size="10.5" text-anchor="middle">${t}</text>`).join('')}
+      <text x="290" y="282" fill="var(--ink2)" font-size="11" font-weight="700" text-anchor="middle">PROBABILIDAD →</text>
+    </svg>`
   }
 ];
 
@@ -239,6 +258,25 @@ DIAGRAMS[5] = [
         `).join('')}
       </g>
       <text x="310" y="150" fill="var(--ink2)" font-size="11" text-anchor="middle">Funciones simultáneas y continuas · también son las 5 fases de la ISO 27032</text>
+    </svg>`
+  },
+  {
+    title: 'Controles ISO 27032 por capa',
+    anchor: 'controles de ciberseguridad',
+    svg: `<svg viewBox="0 0 560 250" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+      ${SVGDEF}
+      <text x="280" y="24" fill="var(--ink)" font-size="14" font-weight="700" text-anchor="middle">Defensa en capas: del código al usuario</text>
+      <g font-size="11">
+        ${[['Aplicación','validar entradas, anti-XSS, sesiones, revisión de código','var(--acc)'],
+           ['Servidor','parches, hardening, pentest, despliegue controlado, AV','var(--acc2)'],
+           ['Usuario final','AV, anti-phishing, firewall personal, mínimo privilegio','#2f9e6e'],
+           ['Ingeniería social','concientización y capacitación del personal','var(--warn)']].map((r,i)=>`
+          <rect x="${40+i*8}" y="${44+i*46}" width="${480-i*16}" height="38" rx="9" fill="var(--panel2)" stroke="${r[2]}"/>
+          <text x="${52+i*8}" y="${62+i*46}" fill="var(--ink)" font-weight="700">${r[0]}</text>
+          <text x="${52+i*8}" y="${77+i*46}" fill="var(--ink2)" font-size="9.5">${r[1]}</text>
+        `).join('')}
+      </g>
+      <text x="280" y="242" fill="var(--ink2)" font-size="10.5" text-anchor="middle">Cada capa cubre lo que la anterior no alcanza</text>
     </svg>`
   }
 ];
@@ -347,6 +385,25 @@ DIAGRAMS[8] = [
         `).join('')}
       </g>
       <text x="310" y="138" fill="var(--ink2)" font-size="10.5" text-anchor="middle">El Seguimiento retroalimenta a la Preparación (mejora continua)</text>
+    </svg>`
+  },
+  {
+    title: 'Qué mirar en un equipo Windows comprometido',
+    anchor: 'análisis en un equipo windows',
+    svg: `<svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif">
+      ${SVGDEF}
+      <circle cx="300" cy="150" r="52" fill="var(--bad)" opacity="0.85"/>
+      <text x="300" y="146" fill="#fff" font-size="11.5" font-weight="700" text-anchor="middle">Equipo</text>
+      <text x="300" y="162" fill="#fff" font-size="11.5" font-weight="700" text-anchor="middle">Windows</text>
+      <g text-anchor="middle" font-size="10.5">
+        ${[['Cuentas','altas y privilegios'],['Logs','Seguridad / Sistema'],['Procesos','anidados y raros'],['Servicios','AV, FW, Defender'],['Conexiones','netstat, recursos'],['Registro','Run / tareas prog.']].map((t,i)=>{
+          const ang=(-90+i*60)*Math.PI/180, x=300+185*Math.cos(ang), y=150+118*Math.sin(ang);
+          return `<line x1="300" y1="150" x2="${x}" y2="${y}" stroke="var(--acc)" opacity="0.35"/>
+          <rect x="${x-62}" y="${y-20}" width="124" height="40" rx="9" fill="var(--panel2)" stroke="var(--acc)"/>
+          <text x="${x}" y="${y-3}" fill="var(--ink)" font-weight="700">${t[0]}</text>
+          <text x="${x}" y="${y+12}" fill="var(--ink2)" font-size="9">${t[1]}</text>`;
+        }).join('')}
+      </g>
     </svg>`
   }
 ];

@@ -48,7 +48,10 @@ Cyberspace -> Branches -> Information security mgmt -> ISMS -> Risk mgmt
 - Pure HTML/CSS/JS, no dependencies or frameworks
 - No build step, no server - opens directly in the browser
 - Three files in one folder: `index.html` (engine), `suite-data-ciber.js` (content), `suite-diagramas-ciber.js` (SVG diagrams)
-- Dark theme, global search, progress tracking, flashcards and quizzes built in
+- Dark theme, global search, progress tracking saved across sessions
+- Per-module **TL;DR**, navigable mini-index with scroll-spy, reading time and collapsible sections
+- Auto card/chip layout for catalog lists, inline SVG icons, progress ring and richer visuals
+- **Flashcards** with know/review tracking and **quiz** with best-score memory plus an exam mode
 - Mobile responsive
 
 ---
@@ -118,7 +121,10 @@ Ciberespacio -> Ramas -> Gestión de la seguridad -> SGSI -> Gestión del riesgo
 - HTML/CSS/JS puro, sin dependencias ni frameworks
 - Sin build step, sin servidor - abre directo en el navegador
 - Tres archivos en una carpeta: `index.html` (motor), `suite-data-ciber.js` (contenido), `suite-diagramas-ciber.js` (diagramas SVG)
-- Tema oscuro, búsqueda global, seguimiento de progreso, flashcards y quizzes integrados
+- Tema oscuro, búsqueda global y seguimiento de progreso que se guarda entre sesiones
+- **TL;DR** por módulo, mini-índice navegable con scroll-spy, tiempo de lectura y secciones colapsables
+- Tarjetas/chips automáticos para las listas, íconos SVG, anillo de progreso y mejor diseño visual
+- **Flashcards** con marca de "la sé/repasar" y **quiz** con memoria de mejor puntaje y modo examen
 - Responsive para móvil
 
 ---
