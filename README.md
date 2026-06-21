@@ -1,22 +1,24 @@
-# Fundamentos de Ciberseguridad - Study Suite
+# Fundamentos de Ciberseguridad · Study Suite
 
 Interactive study material for the **Cybersecurity Fundamentals** course in the Cybersecurity program at Universidad de Palermo, Buenos Aires.
 
 **[View live suite](https://catalinacarlen.github.io/fund-ciberseguridad-suite/)**
 
----
-
-## About
-
-A single self-contained HTML study app covering the full course syllabus across twelve modules. It runs without a server, requires no internet connection beyond the initial load, and can be shared as a folder of three plain files.
-
-The suite follows an ascending pedagogical order - from understanding the cyberspace and its threats, through security and risk management, standards and defensive tools, up to incident response, business continuity and auditing - and closes with a real-world case study that ties all the theory together. Each module opens where the previous one left off, with a visible *thread* (hilo conductor) connecting them.
-
-Every module includes faithful content from the course notes, plus added context and examples, inline **SVG diagrams** injected into their matching section, **flashcards** for active recall, and an auto-graded **quiz**.
+[Versión en español más abajo.](#español)
 
 ---
 
-## Modules
+## English
+
+### About
+
+A single self-contained HTML study app covering the full course syllabus across twelve modules. It runs without a server, needs no internet beyond the first load, and can be shared as a folder of three plain files.
+
+The modules go in order: from the cyberspace and its threats, through security and risk management, standards and defensive tools, up to incident response, business continuity and auditing. It closes with a real case study that ties the theory together. Each module picks up where the last left off, with a visible *thread* (hilo conductor) running between them.
+
+Every module carries the course notes themselves, plus extra context and examples, inline **SVG diagrams** in their matching section, **flashcards** for active recall, and an auto-graded **quiz**.
+
+### Modules
 
 | # | Module | Key topics |
 |---|--------|------------|
@@ -31,9 +33,9 @@ Every module includes faithful content from the course notes, plus added context
 | 09 | **Plan de IR** | The 5 IR phases, Windows forensic analysis (accounts, logs, processes, registry), Nobelium/SolarWinds case |
 | 10 | **Continuidad de negocio** | BCM, BCP, BIA (RTO & RPO), DRP, plan components, ransomware as a case study |
 | 11 | **Auditoría** | Audit concept and types, systems audit, COBIT 5, continuous audit, three lines of defense |
-| 12 | **Caso práctico: ABC S.A.** | Group project: a full security plan - standards, CID asset classification, risks, gaps, budgeted investment, segmented network architecture |
+| 12 | **Caso práctico: ABC S.A.** | Group project: a full security plan (standards, CID asset classification, risks, gaps, budgeted investment, segmented network architecture) |
 
-### Thread through the syllabus
+#### Thread through the syllabus
 
 ```
 Cyberspace -> Branches -> Information security mgmt -> ISMS -> Risk mgmt
@@ -41,12 +43,10 @@ Cyberspace -> Branches -> Information security mgmt -> ISMS -> Risk mgmt
     -> Business continuity -> Auditing -> Practical case (ABC S.A.)
 ```
 
----
-
-## Tech
+### Tech
 
 - Pure HTML/CSS/JS, no dependencies or frameworks
-- No build step, no server - opens directly in the browser
+- No build step and no server; opens directly in the browser
 - Three files in one folder: `index.html` (engine), `suite-data-ciber.js` (content), `suite-diagramas-ciber.js` (SVG diagrams)
 - Dark theme, global search, progress tracking saved across sessions
 - Per-module **TL;DR**, navigable mini-index with scroll-spy, reading time and collapsible sections
@@ -54,9 +54,7 @@ Cyberspace -> Branches -> Information security mgmt -> ISMS -> Risk mgmt
 - **Flashcards** with know/review tracking and **quiz** with best-score memory plus an exam mode
 - Mobile responsive
 
----
-
-## Local use
+### Local use
 
 ```bash
 git clone https://github.com/catalinacarlen/fund-ciberseguridad-suite
@@ -66,32 +64,23 @@ open index.html
 
 ---
 
-Made by [Catalina Carlen](https://github.com/catalinacarlen) - Universidad de Palermo, Cybersecurity
-
----
----
-
-# Fundamentos de Ciberseguridad - Suite de Estudio
+## Español
 
 Material interactivo para la materia **Fundamentos de Ciberseguridad** de la carrera de Ciberseguridad en la Universidad de Palermo.
 
 **[Ver suite en vivo](https://catalinacarlen.github.io/fund-ciberseguridad-suite/)**
 
----
+### Sobre el proyecto
 
-## Sobre el proyecto
+Una única aplicación HTML autocontenida que cubre el temario completo de la materia en doce módulos. No necesita servidor, no requiere conexión más allá de la primera carga, y se puede compartir como una carpeta de tres archivos planos.
 
-Una única aplicación HTML autocontenida que cubre el temario completo de la materia en doce módulos. No requiere servidor, no necesita conexión adicional, y puede compartirse como una carpeta de tres archivos planos.
+Los módulos van en orden: desde el ciberespacio y sus amenazas, pasando por la gestión de la seguridad y del riesgo, los estándares y las herramientas defensivas, hasta la respuesta a incidentes, la continuidad del negocio y la auditoría. Cierra con un caso práctico real que une toda la teoría. Cada módulo abre donde terminó el anterior, con un hilo conductor visible que los conecta.
 
-La suite sigue un orden pedagógico ascendente - desde entender el ciberespacio y sus amenazas, pasando por la gestión de la seguridad y del riesgo, los estándares y las herramientas defensivas, hasta la respuesta a incidentes, la continuidad del negocio y la auditoría - y cierra con un caso práctico real que une toda la teoría. Cada módulo abre donde terminó el anterior, con un hilo conductor visible que los conecta.
+Cada módulo lleva el contenido fiel de los apuntes, más contexto y ejemplos añadidos, **diagramas SVG** inyectados en su apartado, **flashcards** para repaso activo y un **quiz** con corrección automática.
 
-Cada módulo incluye el contenido fiel de los apuntes, más contexto y ejemplos añadidos, **diagramas SVG** inyectados en su apartado correspondiente, **flashcards** para repaso activo y un **quiz** con corrección automática.
+### Módulos
 
----
-
-## Modulos
-
-| # | Modulo | Temas principales |
+| # | Módulo | Temas principales |
 |---|--------|-------------------|
 | 01 | **Ciberseguridad** | Ciberespacio, amenazas (malware, phishing, ransomware, DDoS...), definición de ISACA, oficial de seguridad |
 | 02 | **Ramas de la Ciberseguridad** | Informática forense, seguridad de redes, hacking ético, pentesting, seguridad ofensiva, ciberpatrullaje |
@@ -104,9 +93,9 @@ Cada módulo incluye el contenido fiel de los apuntes, más contexto y ejemplos 
 | 09 | **Plan de IR** | Las 5 fases de IR, análisis forense en Windows (cuentas, logs, procesos, registro), caso Nobelium/SolarWinds |
 | 10 | **Continuidad de negocio** | BCM, BCP, BIA (RTO y RPO), DRP, componentes del plan, el ransomware como caso testigo |
 | 11 | **Auditoría** | Concepto y tipos de auditoría, auditoría de sistemas, COBIT 5, auditoría continua, tres líneas de defensa |
-| 12 | **Caso práctico: ABC S.A.** | Trabajo grupal: un plan de seguridad completo - estándares, clasificación CID de activos, riesgos, brechas, inversión con presupuesto, arquitectura de red segmentada |
+| 12 | **Caso práctico: ABC S.A.** | Trabajo grupal: un plan de seguridad completo (estándares, clasificación CID de activos, riesgos, brechas, inversión con presupuesto, arquitectura de red segmentada) |
 
-### Hilo conductor
+#### Hilo conductor
 
 ```
 Ciberespacio -> Ramas -> Gestión de la seguridad -> SGSI -> Gestión del riesgo
@@ -114,12 +103,10 @@ Ciberespacio -> Ramas -> Gestión de la seguridad -> SGSI -> Gestión del riesgo
      -> Continuidad de negocio -> Auditoría -> Caso práctico (ABC S.A.)
 ```
 
----
-
-## Tecnologia
+### Tecnología
 
 - HTML/CSS/JS puro, sin dependencias ni frameworks
-- Sin build step, sin servidor - abre directo en el navegador
+- Sin build step y sin servidor; abre directo en el navegador
 - Tres archivos en una carpeta: `index.html` (motor), `suite-data-ciber.js` (contenido), `suite-diagramas-ciber.js` (diagramas SVG)
 - Tema oscuro, búsqueda global y seguimiento de progreso que se guarda entre sesiones
 - **TL;DR** por módulo, mini-índice navegable con scroll-spy, tiempo de lectura y secciones colapsables
@@ -127,9 +114,7 @@ Ciberespacio -> Ramas -> Gestión de la seguridad -> SGSI -> Gestión del riesgo
 - **Flashcards** con marca de "la sé/repasar" y **quiz** con memoria de mejor puntaje y modo examen
 - Responsive para móvil
 
----
-
-## Uso local
+### Uso local
 
 ```bash
 git clone https://github.com/catalinacarlen/fund-ciberseguridad-suite
@@ -139,4 +124,4 @@ open index.html
 
 ---
 
-Hecho por [Catalina Carlen](https://github.com/catalinacarlen) - Universidad de Palermo, Ciberseguridad
+Made by [Catalina Carlen](https://github.com/catalinacarlen) · Universidad de Palermo, Cybersecurity
